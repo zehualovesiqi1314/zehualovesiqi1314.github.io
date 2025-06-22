@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>LoveBlog</title>
+  <title>恋爱清单 - LoveBlog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
@@ -57,7 +57,7 @@
     var CONFIG = window.CONFIG || {};
     var ZHAOO = window.ZHAOO || {};
     CONFIG = {
-      isHome: true,
+      isHome: false,
       fancybox: true,
       pjax: false,
       loading: {
@@ -203,6 +203,8 @@
   <nav class="navbar">
     <div class="left">
       
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
       
         <i class="iconfont iconqrcode j-navbar-qrcode"></i>
       
@@ -211,7 +213,7 @@
       
       
     </div>
-    <div class="center"> </div>
+    <div class="center">恋爱清单</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -229,11 +231,11 @@
       <i class="iconfont iconbaseline-close-px"></i>
     </div>
     <ul class="menu-content"><li class="menu-item">
-        <a href="/ " class="underline active"> 首页</a>
+        <a href="/ " class="underline "> 首页</a>
       </li><li class="menu-item">
         <a href="/lovetree/ " class="underline "> 爱情树</a>
       </li><li class="menu-item">
-        <a href="/lovelist/ " class="underline "> 恋爱清单</a>
+        <a href="/lovelist/ " class="underline active"> 恋爱清单</a>
       </li><li class="menu-item">
         <a href="/message/ " class="underline "> 留言板</a>
       </li><li class="menu-item">
@@ -249,206 +251,203 @@
   </div>
 </nav>
   <main id="main">
-  
-    <div class="preview">
-  <!-- <nav class="navbar j-navbar-menu">
-    <i class="iconfont iconmenu"></i>
-  </nav> -->
-  <div class="preview-image">
-        
-              <div class="preview-overlay">
-                <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                  <defs>
-                    <path id="gentle-wave"
-                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                  </defs>
-                  <g class="preview-parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
-                  </g>
-                </svg>
-              </div>
-              
-  </div>
-  <div class="preview-motto-wrapper">
-    <span class="STYLE1" style="color: red">💕</span>
-    <h2 class="preview-motto" id="motto">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">恋爱清单</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 22, 2025</span>
       
-    </h2>
-    
-      <span class="preview-cursor">_</span>
-      
-    <span class="STYLE1" style="color: red">💕</span>
-  </div>
-  <div div class="preview-avatar-father">
-    <div class="preview-avatar">
-      <div class="sub-avatar">
-        <img src="/images/theme/boy.jpeg" alt="男生头像" class="circle-image">
-        <p>Zehua</p>
-      </div>
-      <div class="love-icon" id="heart-beat">
-      </div>
-      <div class="sub-avatar">
-        <img src="/images/theme/girl.jpeg" alt="女生头像" class="circle-image">
-        <p>Siqi</p>
-      </div>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2980</span>
     </div>
   </div>
-  <div class="together">
-    <b id="span_dt_dt">这是我们在一起的</b>
-  </div>
-  <div class="timer">
-    <b id="d"></b> &nbsp;天&nbsp; <b id="h"></b> &nbsp;小时&nbsp; <b id="m"></b> &nbsp;分钟&nbsp; <b id="s"></b> &nbsp;秒
-  </div>
-  <div class="preview-scroll">
-    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
-  </div>
-  <script>
-    // JavaScript代码
-    const heartBeatDiv = document.getElementById('heart-beat');
-    let scale = 1; // 初始缩放比例
-    let direction = 1; // 方向：1表示放大，-1表示缩小
-    const maxScale = 1.8; // 最大缩放比例
-    const minScale = 1; // 最小缩放比例
-    const speedBig = 0.01; // 变大速度
-    const speedSmall = 0.02; // 变小速度
-    
-
-    function animateHeartBeat() {
-      if (direction > 0) {
-        scale += direction * speedBig; // 根据方向调整缩放比例
-      } else {
-        scale += direction * speedSmall;
-      }
-      
-      heartBeatDiv.style.transform = `scale(${scale})`; // 动态更新CSS的transform属性
-
-      // 判断是否达到最大或最小缩放比例，改变方向
-      if (scale >= maxScale) {
-        direction = -1;
-      } else if (scale <= minScale) {
-        direction = 1;
-      }
-
-      requestAnimationFrame(animateHeartBeat); // 使用requestAnimationFrame实现循环动画
-    }
-
-    // 开始动画
-    animateHeartBeat();
-  </script>
-  <script>
-    function timer() {
-        var start = new Date(2025, 4, 20); // 2015.7.2
-        var t = new Date() - start;
-        var h = ~~(t / 1000 / 60 / 60 % 24);
-        if (h < 10) {
-            h = "0" + h;
-        }
-        var m = ~~(t / 1000 / 60 % 60);
-        if (m < 10) {
-            m = "0" + m;
-        }
-
-        var s = ~~(t / 1000 % 60);
-        if (s < 10) {
-            s = "0" + s;
-        }
-        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
-        document.getElementById('h').innerHTML = h;
-        document.getElementById('m').innerHTML = m;
-        document.getElementById('s').innerHTML = s;
-    }
-    timer();
-    setInterval(timer, 1000);
-</script>
-</div>
-
-  
-  <div class="container" id="container">
-    <section class="row post">
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2025/06/20/hello-world/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2025/06/20/hello-world/" title="Hello World" >Hello World</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any ...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 20, 2025</span>
+</section>
+    <section class="main">
+      <section class="content">
         
-      </div>
-    </div>
-  </div>
+        <style>
+.message-content {
+    display: flex;
+    justify-content: center;
+    font-size: 150%;
+}
+@media (min-width: 768px) {
+    .message-content {
+    font-size: 200%; /* 在屏幕宽度大于等于768px时的字体大小 */
+    }
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.todo-container {
+    /* max-width: 400px; */
+    font-size: 20px;
+    margin: 0 auto;
+}
+.todo-stats {
+    font-size: 22px;
+    font-weight: bold;
+}
+.todo-stats i {
+    color: #fd637d;
+}
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+}
+.todo-item .status-icon {
+    width: 24px; /* 根据实际图片大小调整 */
+    height: 24px; /* 根据实际图片大小调整 */
+}
+.todo-item .todo-text {
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+</style>
+<div class="message-content">
+<h1 style="color: #fd637d;">一起携手走过的点点滴滴</h1>
 </div>
 
-  
-</section>
-    <section class="paginator">
-  
-</section>
-  </div>
-  <!-- 花瓣和雪花飘落 -->
-  <script>
-  function loadScript(src, cb) {
-    return new Promise(resolve => {
-      setTimeout(function () {
-        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
-        var script = document.createElement("script");
-        script.setAttribute("type", "text/javascript");
-        if (cb) {
-          if (JSON.stringify(cb)) {
-            for (let p in cb) {
-              if (p == "onload") {
-                script[p] = () => {
-                  cb[p]()
-                  resolve()
-                }
-              } else {
-                script[p] = cb[p]
-                script.onload = resolve
-              }
-            }
-          } else {
-            script.onload = () => {
-              cb()
-              resolve()
-            };
-          }
+<div class="todo-container">
+    <div class="todo-stats" >
+        一共有 <i id="total"></i> 件事，已经完成了 <i id="finish"></i> 件
+    </div> <!-- 统计信息 -->
+    <div id="todo-list"></div>
+</div>
+
+<script>
+    // 预定义的事项列表和完成状态
+    const todos = [
+        { text: "一起看一场电影", completed: true },
+        { text: "一起打桌游", completed: true },
+        { text: "一起DIY一件作品", completed: true },
+        { text: "一起打街机", completed: true },
+        { text: "一起去游乐场玩", completed: true },
+        { text: "一起逛动物园", completed: true },
+        { text: "一起去郊游", completed: true },
+        { text: "一起抓娃娃", completed: true },
+        { text: "一起玩卡丁车", completed: true },
+        { text: "一起撸猫", completed: true },
+        { text: "一起逛天文馆", completed: true },
+        { text: "一起吃火锅", completed: true },
+        { text: "一起去攀岩", completed: false },
+        { text: "一起去划船", completed: false },
+        { text: "一起看一场演出", completed: false },
+        { text: "一起去滑雪", completed: false },
+        { text: "一起去漂流", completed: false },
+        { text: "一起去水上乐园", completed: false },
+        { text: "一起去看一次日出", completed: false },
+        { text: "一起去坐摩天轮", completed: false }
+    ];
+
+    // 获取todo列表容器
+    const todoList = document.getElementById('todo-list');
+    const total = document.getElementById('total');
+    const finish = document.getElementById('finish');
+
+    // 统计总事项数和已完成的事项数
+    const totalTodos = todos.length;
+    const completedTodos = todos.filter(todo => todo.completed).length;
+
+    // 显示统计信息
+    total.innerHTML = ` ${totalTodos} `;
+    finish.innerHTML = ` ${completedTodos} `;
+
+    // 遍历todos数组，生成列表项
+    todos.forEach(todo => {
+        const todoItem = document.createElement('li');
+        todoItem.className = 'todo-item';
+
+        // 创建状态图标（使用img标签）
+        const checkmark = document.createElement('img');
+        checkmark.className = 'status-icon'; // 添加特定的类名
+        if (todo.completed) {
+            checkmark.src = 'check.png'; // 已完成的图标
         } else {
-          script.onload = resolve
+            checkmark.src = 'uncheck.png'; // 未完成的图标
         }
-        script.setAttribute("src", src);
-        HEAD.appendChild(script);
-      });
+
+        // 创建事项文本
+        const todoText = document.createElement('span');
+        todoText.className = 'todo-text';
+        todoText.textContent = todo.text;
+
+        // 将对勾和文本添加到列表项中
+        todoItem.appendChild(checkmark);
+        todoItem.appendChild(todoText);
+
+        // 将列表项添加到页面的<ul>标签中
+        todoList.appendChild(todoItem);
     });
-  }
+</script>
+      </section>
+      <section class="extra">
+        
+          <!-- <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Zehua Ren</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/lovelist/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;lovelist&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;lovelist&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul> -->
+        
+        
+        
+        
+      </section>
+      
+        <section class="comments">
+  
+  
+<div id="valine"></div>
+<script defer src="/js/Valine.min.js"></script>
+<script>
+  window.onload = function () {
+    var loadValine = function () {
+      new Valine({
+        el: '#valine',
+        app_id: "KH9Z3JOEQWfbQdJgYoXdkhHx-gzGzoHsz",
+        app_key: "JIMAwT52KSRkl8UziowaOBXe",
+        placeholder: "请留下对我们的祝福",
+        avatar: "monsterid",
+        pageSize: "10",
+        lang: "zh-CN",
+      });
+    }
+    if ( false ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        loadValine();
+      });
+    } else {
+      loadValine();
+    }
+  };
 </script>
 
-<!-- 雪花和花瓣特效 -->
-
-  
-    <script defer src="/js/falling/snow.js"></script>
-  
-
-  
-    <script defer src="/js/falling/sakura.js"></script>
-  
-
-
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+        
+      </div>
+    </div>
+  </div>
 </main>
-
   
 
 <footer class="footer">

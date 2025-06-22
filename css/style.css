@@ -6,7 +6,7 @@
   --color-text-secondary: #4e4e4e;
   --color-text-third: #999;
   --color-border: #eee;
-  --background-image: url("/images/theme/welcome-image.jpg");
+  --background-image: url("/images/theme/background2.jpg");
   --loveicon-image: url("/images/like.svg");
   --loading-image: url("/images/theme/loading.gif");
   --lazyload-image: url("/images/theme/loading.gif");
@@ -23,7 +23,7 @@
     --color-text-secondary: #9899ab;
     --color-text-third: #7d8594;
     --color-border: #2b3038;
-    --background-image: url("/images/theme/welcome-image.jpg");
+    --background-image: url("/images/theme/background2.jpg");
     --loveicon-image: url("/images/like.svg");
     --loading-image: url("/images/theme/loading.gif");
     --lazyload-image: url("/images/theme/loading.gif");
@@ -37,7 +37,7 @@
   --color-text-secondary: #9899ab;
   --color-text-third: #7d8594;
   --color-border: #2b3038;
-  --background-image: url("/images/theme/welcome-image.jpg");
+  --background-image: url("/images/theme/background2.jpg");
   --loveicon-image: url("/images/like.svg");
   --loading-image: url("/images/theme/loading.gif");
   --lazyload-image: url("/images/theme/loading.gif");
@@ -1230,7 +1230,7 @@ body input {
   top: 15vh;
   z-index: 50;
   width: 772px;
-  height: 30%;
+  height: 35%;
   background: rgba(207,207,207,0.631);
   text-align: center;
   justify-content: center;
@@ -1238,16 +1238,42 @@ body input {
   margin: auto;
   border-radius: 4rem;
 }
-@media (max-width: 768px) {
-  .preview .preview-avatar {
-    width: 90%;
-  }
-}
-.preview .love-icon {
+.preview .preview-avatar .love-icon {
   width: 30%;
   height: 30%;
   background-image: var(--loveicon-image);
   background-size: 100% 100%;
+}
+.preview .preview-avatar .sub-avatar {
+  align-items: center;
+}
+.preview .preview-avatar .sub-avatar .circle-image {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover /* 确保图片填充整个区域 */;
+  border: 5px solid #fff /* 添加5像素宽的白色边框 */;
+  box-sizing: border-box /* 确保边框不会增加图片的总尺寸 */;
+}
+@media (max-width: 768px) {
+  .preview .preview-avatar .sub-avatar .circle-image {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+.preview .preview-avatar .sub-avatar p {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: #fff;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .preview .preview-avatar {
+    width: 90%;
+  }
 }
 .preview .timer {
   height: 7vh;
