@@ -6,7 +6,8 @@
   --color-text-secondary: #4e4e4e;
   --color-text-third: #999;
   --color-border: #eee;
-  --background-image: url("/images/theme/background2.jpg");
+  --background-image: url("/images/theme/laptop.gif");
+  --background-image-mobile: url("/images/theme/mobile.gif");
   --loveicon-image: url("/images/like.svg");
   --loading-image: url("/images/theme/loading.gif");
   --lazyload-image: url("/images/theme/loading.gif");
@@ -23,7 +24,8 @@
     --color-text-secondary: #9899ab;
     --color-text-third: #7d8594;
     --color-border: #2b3038;
-    --background-image: url("/images/theme/background2.jpg");
+    --background-image: url("/images/theme/laptop.gif");
+    --background-image-mobile: url("/images/theme/mobile.gif");
     --loveicon-image: url("/images/like.svg");
     --loading-image: url("/images/theme/loading.gif");
     --lazyload-image: url("/images/theme/loading.gif");
@@ -37,7 +39,8 @@
   --color-text-secondary: #9899ab;
   --color-text-third: #7d8594;
   --color-border: #2b3038;
-  --background-image: url("/images/theme/background2.jpg");
+  --background-image: url("/images/theme/laptop.gif");
+  --background-image-mobile: url("/images/theme/mobile.gif");
   --loveicon-image: url("/images/like.svg");
   --loading-image: url("/images/theme/loading.gif");
   --lazyload-image: url("/images/theme/loading.gif");
@@ -1136,6 +1139,11 @@ body input {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .preview .preview-image {
+    background-image: var(--background-image-mobile);
+  }
 }
 .preview .preview-image .preview-video {
   object-fit: cover;
